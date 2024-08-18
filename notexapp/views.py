@@ -22,7 +22,7 @@ def notes(request):
 @api_view(['GET', 'PUT', 'DELETE'])
 def note_detail(request, slug):
     try:
-        note = Note.objects.get(slug)
+        note = Note.objects.get(slug=slug)
     except Note.DoesNotExist:
         return Response(status=status.HTTP_404_NOT_FOUND)
     
